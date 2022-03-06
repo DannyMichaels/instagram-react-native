@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontWeight: 500,
+    fontWeight: '500',
   },
   leftText: {
     position: 'absolute',

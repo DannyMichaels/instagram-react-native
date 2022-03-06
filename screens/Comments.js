@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { SafeAreaView } from 'react-native';
 import React from 'react';
 import NavigationBar from '../components/NavigationBar';
@@ -9,6 +9,11 @@ import { useStore } from '../store/useStore';
 export default function Comments({ style }) {
   const { allComments, addComment, closeCommentScreen, selectedItemId } =
     useStore();
+
+  const currentComments = useMemo(
+    () => allComments[selectedItemId],
+    [selectedItemId, allComments[selectedItemId]]
+  );
 
   const onSubmitComment = useCallback((newComment) => {
     addComment(newComment);
@@ -22,7 +27,7 @@ export default function Comments({ style }) {
         onPressLeftText={closeCommentScreen}
       />
       <CommentInput placeholder="Leave a comment" onSubmit={onSubmitComment} />
-      <CommentList comments={allComments[selectedItemId] || []} />
+      <CommentList comments={currentComments} />
     </SafeAreaView>
   );
 }

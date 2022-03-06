@@ -33,7 +33,6 @@ export default function CardList({ posts }) {
       data={posts}
       renderItem={renderPost}
       keyExtractor={keyExtractor}
-      extraData={allComments}
     />
   );
 }
