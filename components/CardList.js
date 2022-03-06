@@ -10,6 +10,7 @@ const renderItem = ({ item: { id, author } }) => (
 );
 
 export default function CardList({ items }) {
+  // https://reactnative.dev/docs/flatlist
   return (
     <FlatList
       data={items}
