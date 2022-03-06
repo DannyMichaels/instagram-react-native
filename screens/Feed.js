@@ -5,7 +5,7 @@ import { fetchImages } from '../utils/api';
 import CardList from '../components/CardList';
 
 export default function Feed({ style }) {
-  const [items, isLoading, error] = useFetch(fetchImages);
+  const [posts, isLoading, error] = useFetch(fetchImages);
 
   if (isLoading) {
     return <ActivityIndicator size="large" />;
@@ -22,7 +22,7 @@ export default function Feed({ style }) {
 
   return (
     <SafeAreaView style={style}>
-      <CardList items={items} />
+      <CardList posts={posts} />
     </SafeAreaView>
   );
 }
